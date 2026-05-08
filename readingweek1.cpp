@@ -2,6 +2,6 @@
 #include <string>
 using namespace std;
 int main() {
-    cout << "Junhyeok" << endl;
+    cout << "Junhyeok Park" << endl;
     return 0;
 }

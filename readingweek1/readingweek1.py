@@ -1,2 +1,4 @@
-print("Hello World")
-print("asdf")
+def main():
+    print("Hello World")
+
+main()

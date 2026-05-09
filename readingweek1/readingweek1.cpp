@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-int main() {
-    cout << "Junhyeok Park is genius" << endl;
+int main(){
+    cout << "Hello World! ans \n";
     return 0;
-}
+} 

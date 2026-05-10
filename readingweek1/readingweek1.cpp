@@ -2,6 +2,13 @@
 #include <string>
 using namespace std;
 int main(){
-    cout << "Hello World! ans \n";
+    int x = 1234;
+    int *ptr = &x;
+
+    while (ptr) {
+        cout << "Point: " << ptr << endl;
+        ptr = nullptr;
+    }
+    cout << "Now No point" << endl;
     return 0;
 } 

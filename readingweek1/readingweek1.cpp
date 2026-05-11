@@ -2,13 +2,28 @@
 #include <string>
 using namespace std;
 int main(){
-    int x = 1234;
-    int *ptr = &x;
+    int score;
+    cout << "Enter a student score: ";
+    cin >> score;
 
-    while (ptr) {
-        cout << "Point: " << ptr << endl;
-        ptr = nullptr;
+    int condition = score / 10;
+    switch(condition) {
+        case 10:
+        case 9:
+            cout << "A" << endl;
+            break;
+        case 8:
+            cout << "B" << endl;
+            break;
+        case 7:
+            cout << "C" << endl;
+            break;
+        case 6:
+            cout << "D" << endl;
+            break;
+        default:
+            cout << "F" << endl;
     }
-    cout << "Now No point" << endl;
+
     return 0;
 } 

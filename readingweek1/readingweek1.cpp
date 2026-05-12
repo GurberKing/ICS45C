@@ -1,29 +1,17 @@
 #include <iostream>
 #include <string>
 using namespace std;
-// array parameters 는 pass by reference 처럼 사용된다. &이 없어도.
-double average(int list[], int length) {
-    double total = 0;
-    for (int count = 0; count < length; count ++) {
-        total += double(list[count]);
-    }
-    return total/length;
+
+void randomfunction(int n) {
+    cout << "result: " << n << endl;
 }
 
-void add_list(int first[], int second[], int third[], int length) {
-    for (int i = 0; i<length; i++) {
-        third[i] = first[i] + second[i];
-    }
+void randomfunction(int n, int m) {
+    cout << "1st result: " << n << endl;
+    cout << "2nd result: " << m << endl;
 }
-
-// 이 코드를 보면, first 와 second는 값value 이 변경 되지 않는걸 볼 수 있다. 그렇기에 const 로 수정허용하지않게 보장.
-void add_list(const int first[], const int second[], int third[], int length) {
-    for (int i = 0; i<length; i++) {
-        third[i] = first[i] + second[i];
-    }
-}
-
 int main() {
-
+    randomfunction(3);
+    randomfunction(5, 6);
     return 0;
 }

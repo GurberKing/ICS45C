@@ -2,9 +2,25 @@
 #include <string>
 using namespace std;
 
+void passbyreference(int &num1, int &num2) {
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
+}
+
+void passbyvalue(int num1, int num2) {
+    int temp = num1;
+    num1 = num2;
+    num2 = temp;
+}
+
 int main(){
-    for (int i = 0; i < 10; i++) {  // ++i 나 i++ 나 loop 안에서는 0부터 9까지임 i값
-        cout << i * i << endl;
-    }
+    int val1 = 2;
+    int val2 = 3;
+    cout << val1 << " "<< val2 << endl;
+    passbyvalue(val1, val2);
+    cout << val1 << " " << val2 << endl;
+    passbyreference(val1, val2);
+    cout << val1 << " " << val2 << endl;
     return 0;
 } 

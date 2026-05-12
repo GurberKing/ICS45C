@@ -2,16 +2,11 @@
 #include <string>
 using namespace std;
 
-void randomfunction(int n) {
-    cout << "result: " << n << endl;
-}
-
-void randomfunction(int n, int m) {
-    cout << "1st result: " << n << endl;
-    cout << "2nd result: " << m << endl;
-}
 int main() {
-    randomfunction(3);
-    randomfunction(5, 6);
+    int arr1[] = {1, 2, 3, 4}; // static allocation
+    for (int i = 0; i < 4; ++i) {
+        cout << arr1[i] << endl;
+    }
+
     return 0;
 }

@@ -1,26 +1,29 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
-void passbyreference(int &num1, int &num2) {
-    int temp = num1;
-    num1 = num2;
-    num2 = temp;
+// array parameters 는 pass by reference 처럼 사용된다. &이 없어도.
+double average(int list[], int length) {
+    double total = 0;
+    for (int count = 0; count < length; count ++) {
+        total += double(list[count]);
+    }
+    return total/length;
 }
 
-void passbyvalue(int num1, int num2) {
-    int temp = num1;
-    num1 = num2;
-    num2 = temp;
+void add_list(int first[], int second[], int third[], int length) {
+    for (int i = 0; i<length; i++) {
+        third[i] = first[i] + second[i];
+    }
 }
 
-int main(){
-    int val1 = 2;
-    int val2 = 3;
-    cout << val1 << " "<< val2 << endl;
-    passbyvalue(val1, val2);
-    cout << val1 << " " << val2 << endl;
-    passbyreference(val1, val2);
-    cout << val1 << " " << val2 << endl;
+// 이 코드를 보면, first 와 second는 값value 이 변경 되지 않는걸 볼 수 있다. 그렇기에 const 로 수정허용하지않게 보장.
+void add_list(const int first[], const int second[], int third[], int length) {
+    for (int i = 0; i<length; i++) {
+        third[i] = first[i] + second[i];
+    }
+}
+
+int main() {
+
     return 0;
-} 
+}

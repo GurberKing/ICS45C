@@ -14,8 +14,11 @@ bool isVowel(char c) {
     }
 }
 
-int main() {
+void testVowel() {
     cout << "a: " << isVowel('a') << endl;
     cout << "b: " << isVowel('b') << endl;
+}
+
+int main() {
     return 0;
 }

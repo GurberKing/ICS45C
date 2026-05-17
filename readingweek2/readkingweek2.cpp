@@ -3,8 +3,11 @@
 #include "add.h"
 using namespace std;
 
-int add(int x, int y);
+const double gravity { 9.8 }; // 상수변수 Const Variable
+int const sidesInSquare { 4}; // east const style
+
 int main() {
-    cout << "int x + int y = " << add(3, 4) << endl;
+    cout << "gravity: " << gravity << '\n';
+    cout << "SidesInSquare: " << sidesInSquare << '\n';
     return 0;
 }

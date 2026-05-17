@@ -3,11 +3,9 @@
 #include "add.h"
 using namespace std;
 
-void printInt(const int x) {
-    cout << x << '\n';
-}
+#define MY_NAME "ALEX"
 
 int main() {
-    printInt(5);
-    printInt(6);
+    cout << MY_NAME << '\n';
+    return 0;
 }

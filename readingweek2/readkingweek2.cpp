@@ -1,11 +1,13 @@
 #include <iostream>
 #include <string>
-#include "add.h"
 using namespace std;
 
-#define MY_NAME "ALEX"
-
 int main() {
-    cout << MY_NAME << '\n';
-    return 0;
+    int x {5};
+    int y {5};
+    cout << x << ' ' << y << '\n';
+    cout << ++x << ' ' << --y << '\n';
+    cout << x << ' ' << y << '\n';
+    cout << x++ << ' ' << y-- << '\n';
+    cout << x << ' ' << y << '\n';
 }

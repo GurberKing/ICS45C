@@ -2,11 +2,7 @@
 #include <string>
 using namespace std;
 int main() {
-    int x { 5 };
-    const int& ref { x };
+    const int& ref { 5 }; // const에 대한 lvalue 참조는 rvalue에도 바인딩 가능.
     cout << ref << endl;
-    ref = 7; // 오류
-
-    x = 6; // 이건 가능
     return 0;
 }

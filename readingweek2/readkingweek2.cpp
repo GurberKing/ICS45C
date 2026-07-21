@@ -2,10 +2,11 @@
 #include <string>
 using namespace std;
 
-int g_x { 5 };
+void printValue(std::string y) {
+    cout << y << '\n';
+} // 여기서 y 소멸
 int main() {
-    static const int s_x { 6 }; // const int 이다.
-
-    [[maybe_unused]] constexpr const int& ref2 {s_x};// constexpr과 const 둘 다 필요.
+    string x { "Hello World!" }; // x 는 std::string 이다.
+    printValue(x); // x 가 값으로 전달되어 y로 복사된다. 비용 큼.
     return 0;
 }

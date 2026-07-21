@@ -2,13 +2,13 @@
 #include <string>
 using namespace std;
 int main() {
-    const double& r1 { 5 }; // 값 int 5로 임시 double 객체가 초기화, 
-    cout << r1 << endl;
+    short bombs { 1 };
 
-    char c { 'a' };
-    const int& r2 { c }; // int 자료형의 임시객체가 생성되고, char 'a' 로 초기화
-    cout << r2 << endl; // r2가 int에 대한 참조이기 때문에 97 출력
+    const int& you {bombs};  // you는 int 객체에만 바인딩 가능, 컴파일러는 bombs를 암시적으로 int 로 변환, 즉 int 임시 객체 생김
+    --bombs; // 그렇기에 원래 short 자료형인 bombs를 감소시켜도 you에는 영향없음.
 
-    // 두 개 모두 참조의 자료형과 임시 객체의 자료형은 동일
+    if (you) { // 즉, 그래서 true 값이 됨.
+        cout << "Bombs Away" << endl;
+    }
     return 0;
 }

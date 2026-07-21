@@ -2,6 +2,9 @@
 #include <string>
 using namespace std;
 int main() {
-    cout << "Hello Woddrld!" << endl;
+    int x = 10;
+    int& r = x;
+    r = 20;
+    cout << x << endl;
     return 0;
 }

@@ -15,6 +15,7 @@ void printDate(const Date& date) {
 
 int main() {
     Date date{ 4, 10, 21 };
+    date.m_day  = 16;
     printDate(date);
     return 0;
 }

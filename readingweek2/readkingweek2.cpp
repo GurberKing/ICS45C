@@ -2,35 +2,18 @@
 #include <string_view>
 using namespace std;
 
-enum AnimalType {
-    cat,
-    dog,
-    chicken,
-    snake,
+struct Date {
+    int day{};
+    int month{};
+    int year{};
 };
 
-constexpr string_view animalName(AnimalType type) {
-    switch(type) {
-        case cat: return "cat";
-        case dog: return "dog";
-        case chicken: return "chicken";
-        case snake: return "snake";
-        default: return "";
-    }
-}
-
-constexpr int numLegs(AnimalType type) {
-    switch (type) {
-        case cat: return 4;
-        case dog: return 4;
-        case chicken: return 2;
-        case snake: return 0;
-        default: return 0;
-    }
+void printDate(const Date& fate){
+    cout << fate.day << '/' << fate.month << '/' << fate.year;
 }
 
 int main() {
-    constexpr AnimalType animal{ snake };
-    cout << "A " << animalName(animal) << " has " << numLegs(animal) << "legs\n";
+    Date gate{ 4, 10, 21 };
+    printDate(gate);
     return 0;
 }

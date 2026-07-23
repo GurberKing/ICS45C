@@ -2,23 +2,35 @@
 #include <string_view>
 using namespace std;
 
-struct Cat {
-    string_view name{ "cat" };
-    int numLegs{ 4 };
+enum AnimalType {
+    cat,
+    dog,
+    chicken,
+    snake,
 };
 
-struct Dog {
-    string_view name{ "dog" };
-    int numLegs{ 4 };
-};
+constexpr string_view animalName(AnimalType type) {
+    switch(type) {
+        case cat: return "cat";
+        case dog: return "dog";
+        case chicken: return "chicken";
+        case snake: return "snake";
+        default: return "";
+    }
+}
 
-struct Chicken {
-    string_view name{ "chicken" };
-    int numLegs{ 2 };
-};
+constexpr int numLegs(AnimalType type) {
+    switch (type) {
+        case cat: return 4;
+        case dog: return 4;
+        case chicken: return 2;
+        case snake: return 0;
+        default: return 0;
+    }
+}
 
 int main() {
-    constexpr Cat animal;
-    cout << "A " << animal.name << " has " << animal.numLegs << " legs\n";
+    constexpr AnimalType animal{ snake };
+    cout << "A " << animalName(animal) << " has " << numLegs(animal) << "legs\n";
     return 0;
 }

@@ -2,20 +2,18 @@
 #include <string>
 using namespace std;
 
-class Date{
-public:
-    int m_day{};
-    int m_month{};
-    int m_year{};
+struct Person{
+    string name{};
+    int age{};
 
-    void print() {
-        cout << m_year << " / " << m_month << " / " << m_day << '\n';
+    void kisses(const Person& person){
+        cout << name << " kisses " << person.name << '\n';
     }
 };
 
 int main() {
-    Date date{ 4, 10, 21 };
-    date.m_day  = 16;
-    date.print();
-    return 0;
+    Person joe { "Joe", 29 };
+    Person kate { "kate", 27};
+
+    joe.kisses(kate);
 }

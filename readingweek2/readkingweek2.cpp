@@ -1,19 +1,20 @@
 #include <iostream>
-#include <string_view>
+#include <string>
 using namespace std;
 
-struct Date {
-    int day{};
-    int month{};
-    int year{};
+class Date{
+public:
+    int m_day{};
+    int m_month{};
+    int m_year{};
 };
 
-void printDate(const Date& fate){
-    cout << fate.day << '/' << fate.month << '/' << fate.year;
+void printDate(const Date& date) {
+    cout << date.m_year << " / " << date.m_month << " / " << date.m_day << '\n';
 }
 
 int main() {
-    Date gate{ 4, 10, 21 };
-    printDate(gate);
+    Date date{ 4, 10, 21 };
+    printDate(date);
     return 0;
 }

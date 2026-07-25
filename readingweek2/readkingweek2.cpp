@@ -14,7 +14,7 @@ struct Date {
 
 int main() 
 {
-    const Date today { 2020, 10, 14 };
-    today.print(); // 오류: non-const 멤버 함수 호출 불가.
+    Date today { 2020, 10, 14 };
+    today.print();
     return 0;
 }

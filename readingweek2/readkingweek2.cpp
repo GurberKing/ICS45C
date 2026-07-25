@@ -2,23 +2,26 @@
 #include <string>
 using namespace std;
 
-class Person{
-private:
-    string name{};
-    int age{};
+struct Date {
+    int year {};
+    int month {};
+    int day {};
 
-public:
-    Person(const string& personName, int personAge) : name{ personName }, age{ personAge }{
+    void print() {
+        cout << year << '/' << month << '/' << day;
     }
 
-    void kisses(const Person& person){
-        cout << name << " kisses " << person.name << '\n';
+    void print(string prefix) {
+        cout << prefix << year << '/' << month << '/' << day;
     }
 };
-
 int main() {
-    Person joe { "Joe", 29 };
-    Person kate { "kate", 27};
+    Date today { 2020, 10, 14 };
+    today.print();
+    cout << '\n';
 
-    joe.kisses(kate);
+    today.print("The date is: ");
+    cout << '\n';
+
+    return 0;
 }

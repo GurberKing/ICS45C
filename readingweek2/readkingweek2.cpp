@@ -7,7 +7,7 @@ struct Date {
     int month {};
     int day {};
 
-    void print() {
+    void print() const {
         cout << year << '/' << month << '/' << day;
     }
 };

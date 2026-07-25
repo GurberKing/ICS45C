@@ -2,26 +2,11 @@
 #include <string>
 using namespace std;
 
-struct Date {
-    int year {};
-    int month {};
-    int day {};
-
-    void print() {
-        cout << year << '/' << month << '/' << day;
-    }
-
-    void print(string prefix) {
-        cout << prefix << year << '/' << month << '/' << day;
-    }
+namespace Foo {
+    void printHi() { cout << "Hi!\n"; }
 };
+
 int main() {
-    Date today { 2020, 10, 14 };
-    today.print();
-    cout << '\n';
-
-    today.print("The date is: ");
-    cout << '\n';
-
+    Foo::printHi(); // 객체가 필요하지 않음.
     return 0;
 }

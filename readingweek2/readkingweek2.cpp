@@ -7,12 +7,12 @@ struct Date {
     int month {};
     int day {};
 
-    void print() {
+    void print() const {
         cout << year << '/' << month << '/' << day;
     }
 };
 
-void doSomething(const Data& data) {
+void doSomething(const Date& data) {
     data.print();
 }
 

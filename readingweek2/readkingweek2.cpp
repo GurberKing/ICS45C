@@ -2,11 +2,19 @@
 #include <string>
 using namespace std;
 
-namespace Foo {
-    void printHi() { cout << "Hi!\n"; }
+struct IntPair {
+    int num1 {};
+    int num2 {};
+
+    void print() { cout << "THe first number: " << num1 << '\n' << "The second number: " << num2 << '\n'; };
 };
 
 int main() {
-    Foo::printHi(); // 객체가 필요하지 않음.
+    IntPair p1 {1, 2};
+    IntPair p2 {2, 3};
+
+    p1.print();
+    p2.print();
+
     return 0;
 }

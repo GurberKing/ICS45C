@@ -2,25 +2,22 @@
 #include <string>
 using namespace std;
 
-struct Date {
-    int year {};
-    int month {};
-    int day {};
+struct Something {
+    void print() {
+        cout << "non-const\n";
+    }
 
     void print() const {
-        cout << year << '/' << month << '/' << day;
+        cout << "const\n";
     }
 };
 
-void doSomething(const Date& data) {
-    data.print();
-}
-
 int main() 
 {
-    Date today { 2020, 10, 14 };
-    today.print();
+    Something s1{};
+    s1.print(); // non-const 버전 print() 호출
 
-    doSomething(today);
+    const Something s2{};
+    s2.print(); // const 버전 print() 호출
     return 0;
 }

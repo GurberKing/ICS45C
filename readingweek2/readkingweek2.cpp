@@ -1,21 +1,22 @@
 #include <iostream>
 #include <string>
 using namespace std;
-struct Date {
-    int year {};
-    int month {};
-    int day {};
+class Date { // class 멤버는 기본적으로 비공개 private, 다른멤버만 접근 가능.
+    int m_year {}; // 기본적으로 비공개
+    int m_month {}; // 기본적으로 비공개
+    int m_day {}; // 기본적으로 비공개
 
-    void incrementDay() {
-        ++day;
+    void print() const { // 기본적으로 비공개
+        cout << m_year << '/' << m_month << '/' << m_day;
     }
 };
 
 int main() {
-    const Date today { 2020, 10, 14 }; // const 클래스 타입 객체
+    Date today { 2020, 10, 14 }; // 오류: 더 이상 집합체 초기화 사용불가.
 
-    today.day += 1; // 오류: const 객체의 멤버 수정 불가.
-    today.incrementDay(); // 오류: 객체를 수정하는 멤버 함수 호출 불가.
+    // 일반 외부 코드에서는 비공개 멤버에 접근 불가.
+    today.m_day += 1; // 오류: m_day 멤버는 비공개.
+    today.print(); // 오류: print() 멤버 함수는 비공개.
 
     return 0;
 }

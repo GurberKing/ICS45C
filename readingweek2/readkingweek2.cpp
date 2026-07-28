@@ -1,23 +1,13 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
-struct Something {
-    void print() {
-        cout << "non-const\n";
-    }
-
-    void print() const {
-        cout << "const\n";
-    }
+struct Date {
+    int year {};
+    int month {};
+    int day {};
 };
 
-int main() 
-{
-    Something s1{};
-    s1.print(); // non-const 버전 print() 호출
-
-    const Something s2{};
-    s2.print(); // const 버전 print() 호출
+int main() {
+    const Date today { 2020, 10, 14 }; // const 클래스 타입 객체
     return 0;
 }

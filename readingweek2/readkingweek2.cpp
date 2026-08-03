@@ -1,28 +1,26 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
-class Person {
+class Point3d {
 private:
-    string m_name {};
-
+    int m_x {};
+    int m_y {};
+    int m_z {};
 public:
-    void kisses(const Person& p) const{
-        cout << m_name << " kisses " << p.m_name << '\n';
+    void setValues(const int x, const int y, const int z) {
+        m_x = x;
+        m_y = y;
+        m_z = z;
     }
 
-    void setName(string name) {
-        m_name = name;
+    void print() {
+        cout << "<" << m_x << ", " << m_y << ", " << m_z << ">" << '\n';
     }
 };
 
 int main() {
-    Person joe;
-    joe.setName("Joe");
-
-    Person kate;
-    kate.setName("Kate");
-
-    joe.kisses(kate);
+    Point3d p;
+    p.setValues(1, 2, 3);
+    p.print();
     return 0;
 }

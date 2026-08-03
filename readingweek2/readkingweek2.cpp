@@ -1,21 +1,28 @@
 #include <iostream>
 #include <string>
 using namespace std;
-class Date {
+
+class Person {
 private:
-    int m_year { 2020 };
-    int m_month { 10 };
-    int m_day { 14 };
+    string m_name {};
 
 public:
-    void print() const { // 멤버는 다른 비공개멤버에 접근할 수 있다.
-        cout << m_year << '/' << m_month << '/' << m_day;
+    void kisses(const Person& p) const{
+        cout << m_name << " kisses " << p.m_name << '\n';
+    }
+
+    void setName(string name) {
+        m_name = name;
     }
 };
 
 int main() {
-    Date d {};
-    d.print(); // 정상: main은 공개 멤버에 접근할 수 있다.
+    Person joe;
+    joe.setName("Joe");
 
+    Person kate;
+    kate.setName("Kate");
+
+    joe.kisses(kate);
     return 0;
 }

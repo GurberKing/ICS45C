@@ -13,10 +13,18 @@ public:
     {
     }
 
-    void print(const Ball& ball) {
-        cout << "Ball(" << m_color << ", " << m_radius << ")\n";
+    const string getColor() const {
+        return m_color;
+    }
+
+    double getRadius() const {
+        return m_radius;
     }
 };
+
+void print(const Ball& ball) {
+    cout << "Ball(" << ball.getColor() << ", " << ball.getRadius() << ")\n";
+}
 
 int main() {
     Ball blue { "blue", 10.0 };

@@ -1,37 +1,35 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
-class Ball {
+class Date {
 private:
-    string m_color {};
-    double m_radius {};
+    int m_year{};
+    int m_month{};
+    int m_day{};
+
 public:
-    Ball(string color, double radius)
-        : m_color { color }
-        , m_radius { radius }
-    {
-    }
+    Date(int year, int month, int day); // 생성자 선언
+    
+    void print() const; // print 함수 선언
 
-    const string getColor() const {
-        return m_color;
-    }
-
-    double getRadius() const {
-        return m_radius;
-    }
+    int getYear() const { return m_year; }
+    int getMonth() const { return m_month; }
+    int getDay() const { return m_day; }
 };
 
-void print(const Ball& ball) {
-    cout << "Ball(" << ball.getColor() << ", " << ball.getRadius() << ")\n";
+Date::Date(int year, int month, int day) // 생성자 정의
+    : m_year{ year }
+    , m_month{ month }
+    , m_day{ day }
+{
+}
+
+void Date::print() const { // print 함수 정의
+    cout << "Date(" << m_year << ", " << m_month << ", " << m_day << ")\n";
 }
 
 int main() {
-    Ball blue { "blue", 10.0 };
-    print(blue);
-
-    Ball red { "red", 12.0 };
-    print(red);
-
+    const Date d{ 2015, 10, 14 };
+    d.print();
     return 0;
 }

@@ -1,22 +1,25 @@
 #include <iostream>
 #include <string>
 using namespace std;
-class Something {
+class Foo {
 private:
-    int m_x{};
+    int m_x {};
+    int m_y {};
 
 public:
-    Something() { // 생성자는 반드시 non-const
-        m_x = 5; // non-const 생성자에서는 멤버 수정 가능.
-    }
+    Foo(int x, int y)
+        : m_x { x }, m_y { y } {
+            cout << "Foo(" << x << ", " << y << ") constructed\n";
+        }
 
-    int getX() const { return m_x; } // const 멤버 함수
+    void print() const {
+        cout << "Foo(" << m_x << ", " << m_y << ")\n";
+    }
 };
 
 int main() {
-    const Something s{}; // const 객체이며 non-const 생성자를 암시적으로 호출
-
-    cout << s.getX(); // 5 출력.
+    Foo foo(6, 7);
+    foo.print();
 
     return 0;
 }

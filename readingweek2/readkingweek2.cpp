@@ -1,38 +1,29 @@
 #include <iostream>
 #include <string>
-#include <optional>
 using namespace std;
-class Fraction {
+
+class Ball {
 private:
-    int m_numerator { 0 };
-    int m_denominator { 1 };
-
-    //private 생성자는 public 영역에서 직접 호출 불가.
-    Fraction(int numerator, int denominator):
-        m_numerator{ numerator }, m_denominator{ denominator }
-        {
-        }
-
+    string m_color {};
+    double m_radius {};
 public:
-        // 이 함수가 private 멤버에 접근 할 수 있게 해줌.
-        friend optional<Fraction> createFraction(int numerator, int denominator);
+    Ball(string color, double radius)
+        : m_color { color }
+        , m_radius { radius }
+    {
+    }
+
+    void print(const Ball& ball) {
+        cout << "Ball(" << m_color << ", " << m_radius << ")\n";
+    }
 };
 
-optional<Fraction> createFraction(int numerator, int denominator) {
-    if (denominator == 0)
-        return {};
+int main() {
+    Ball blue { "blue", 10.0 };
+    print(blue);
 
-    return Fraction{numerator, denominator};
-}
+    Ball red { "red", 12.0 };
+    print(red);
 
-int main(){
-    auto f1 { createFraction(0, 1) };
-    if (f1){
-        cout << "Fraction created\n";
-    }
-
-    auto f2 { createFraction(0, 0) };
-    if (!f2) {
-        cout << "Bad fraction\n";
-    }
+    return 0;
 }

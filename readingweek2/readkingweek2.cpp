@@ -1,27 +1,38 @@
 #include <iostream>
 #include <string>
+#include <optional>
 using namespace std;
-class Foo {
+class Fraction {
 private:
-    int m_x { 0 };
-    int m_y { 1 };
+    int m_numerator { 0 };
+    int m_denominator { 1 };
 
-public:
-    Foo(int x, int y)
-        : m_x { x }
+    //private 생성자는 public 영역에서 직접 호출 불가.
+    Fraction(int numerator, int denominator):
+        m_numerator{ numerator }, m_denominator{ denominator }
         {
-            m_x = x; // 잘못된 방식: 초기화가 아니라 대입함.
-            m_y = y; // 잘못된 방식: 초기화가 아니라 대입함.
         }
 
-    void print() const {
-        cout << "Foo(" << m_x << ", " << m_y << ")\n";
-    }
+public:
+        // 이 함수가 private 멤버에 접근 할 수 있게 해줌.
+        friend optional<Fraction> createFraction(int numerator, int denominator);
 };
 
-int main() {
-    Foo foo(6, 7);
-    foo.print();
+optional<Fraction> createFraction(int numerator, int denominator) {
+    if (denominator == 0)
+        return {};
 
-    return 0;
+    return Fraction{numerator, denominator};
+}
+
+int main(){
+    auto f1 { createFraction(0, 1) };
+    if (f1){
+        cout << "Fraction created\n";
+    }
+
+    auto f2 { createFraction(0, 0) };
+    if (!f2) {
+        cout << "Bad fraction\n";
+    }
 }

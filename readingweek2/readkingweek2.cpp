@@ -3,24 +3,24 @@
 using namespace std;
 class Foo {
 private:
-    int m_x {};
-    int m_y { 2 };
-    int m_z;
+    int m_x { 0 };
+    int m_y { 1 };
 
 public:
-    Foo(int x)
+    Foo(int x, int y)
         : m_x { x }
         {
-            cout << "Foo constructed\n";
+            m_x = x; // 잘못된 방식: 초기화가 아니라 대입함.
+            m_y = y; // 잘못된 방식: 초기화가 아니라 대입함.
         }
 
     void print() const {
-        cout << "Foo(" << m_x << ", " << m_y << ", " << m_z << ")\n";
+        cout << "Foo(" << m_x << ", " << m_y << ")\n";
     }
 };
 
 int main() {
-    Foo foo(6);
+    Foo foo(6, 7);
     foo.print();
 
     return 0;

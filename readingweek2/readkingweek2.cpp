@@ -1,11 +1,14 @@
 #include <iostream>
 #include <string>
 using namespace std;
-void foo(int, int) {
-}
+class Foo {
+public:
+    Foo(int x, int y) {
+    }
+};
 
 int main() {
-    foo('a', true);
+    Foo foo{ 'a', true }; // Foo(int, int) 생성자와 일치한다.
 
     return 0;
 }

@@ -1,15 +1,17 @@
 #include <iostream>
 #include <string>
 using namespace std;
-int main() {
-    cout << "Enter your name: ";
-    string name;
-    cin >> name;
+int main()
+{
+    std::cout << "Pick 1 or 2: ";
+    int choice{};
+    std::cin >> choice;
 
-    cout << "Enter your favorite color: ";
-    string color;
-    cin >> color;
+    std::cout << "Now enter your name: ";
+    std::string name{};
+    std::getline(std::cin, name); // note: no std::ws here
 
-    cout << "Your name is " << name << " and your favorite color is " << color;
+    std::cout << "Hello, " << name << ", you picked " << choice << '\n';
+
     return 0;
 }

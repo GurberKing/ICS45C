@@ -1,12 +1,14 @@
 #include <iostream>
 #include <string>
 using namespace std;
+
+const string& getProgramName() { // return by reference to const
+    static const string s_programName = "Calculator";
+    // static은 함수가 끝나는 순간 지역변수가 사라지는걸 방지한다.
+    return s_programName;
+}
+
 int main() {
-    string returnByValue();
-    // string의 복사본을 반환하는 함수, 비용이 크다.
-    string& returnByReference();
-    // string에 대한 참조를 반환. 저렴함.
-    const string& returnByReferenceToConst();
-    // string에 대한 const 참조를 반환함. 저렴함.
+    cout << "This program is named " << getProgramName();
     return 0;
 }

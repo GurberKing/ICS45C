@@ -2,17 +2,15 @@
 #include <string>
 using namespace std;
 
-const int& returnByConstReference(const int& ref) {
-    return ref;
+const int& getNextId() {
+    static int s_x = 0; // static const가 아닌 정적지역변수만 사용.
+    ++s_x;
+    return s_x;
 }
 
 int main() {
-    // 직접참조
-    const int& ref1 = 5;
-    cout << ref1 << '\n';
-
-    // 간접참조
-    const int& ref2 = returnByConstReference(5);
-    cout << ref2 << '\n';
+    const int& id1 = getNextId(); // 1로 예상 하지만 2로
+    const int& id2 = getNextId(); // 2로 예상 결과도 2.
+    cout << id1 << id2 << '\n';
     return 0;
 }

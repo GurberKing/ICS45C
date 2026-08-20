@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
-using namespace std;
+using namespace std::string_literals;
 int main() {
-    cout << "foo\n";
-    cout << "goo\n"s;
+    constexpr std::string name = "Alex"s; // compile error
 }

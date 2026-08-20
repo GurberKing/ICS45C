@@ -9,6 +9,8 @@ int main() {
     cout << "Enter your age: ";
     int age;
     cin >> age;
-    cout << "Your age + length of name is: " << age + name.length();
+
+    int nameLen = static_cast<int>(name.length());
+    cout << "Your age + length of name is: " << age + nameLen;
     return 0;
 }

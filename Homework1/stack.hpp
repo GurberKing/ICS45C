@@ -13,11 +13,12 @@ public:
     }
 
     void push(char c) {
-        if (!isFull()) {
-            buf[_top] = c;
-            _top++;
+            if (!isFull()) {
+                buf[_top] = c;
+                _top++;
+            }
         }
-    }
+
     char pop() {
         if (isEmpty()) {
             return '@';
@@ -46,6 +47,7 @@ void push_all(Stack & stk, string line) {
     for (int i = 0; i < line.size(); ++i) {
         stk.push(line[i]);
     }
+
 }
 
 void pop_all(Stack & stk) {

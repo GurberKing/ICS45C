@@ -2,14 +2,16 @@
 #include <string>
 using namespace std;
 
-const string& firstAlphabetical(const string& a, const string& b) {
-    return (a < b) ? a : b;
+const string& foo(const string& s) {
+    return s;
+}
+
+string getHello() {
+    return "Hello";
 }
 
 int main() {
-    string hello = "Hello";
-    string world = "World";
-
-    cout << firstAlphabetical(hello, world);
+    const string s = foo(getHello());
+    cout << s;
     return 0;
 }

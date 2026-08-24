@@ -2,14 +2,15 @@
 #include <string>
 using namespace std;
 
-int& max(int& x, int& y) {
-    return (x > y) ? x : y;
-}
+class Foo {
+private: 
+    int m_x{};
+    int m_y{};
+
+    // 선언된 생성자가 없음.
+};
 
 int main() {
-    int a = 5;
-    int b = 6; 
-    max(a, b) = 7;
-    cout << a << b << '\n';
+    Foo foo{};
     return 0;
 }

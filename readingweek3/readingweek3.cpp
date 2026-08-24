@@ -3,7 +3,8 @@
 using namespace std;
 
 int main() {
-    int array[5] {};
-    cout << sizeof(array) / sizeof(array[0]);
+    int arr[] { 1, 2, 3 };
+    arr[0] = 4; // 가능
+    arr = { 5, 6, 7 }; // 에러
     return 0;
 }

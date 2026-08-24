@@ -2,24 +2,7 @@
 #include <string>
 using namespace std;
 
-class Foo {
-private: 
-    int m_x{};
-    int m_y{};
-
-public:
-    Foo() = default;
-
-    Foo(int x, int y)
-    :m_x{ x }
-    ,m_y{ y }
-    {
-        cout << "Foo(" << m_x << ", " << m_y << ") constructed";
-    }
-};
-
 int main() {
-    Foo foo{};
-    Foo foo1(2, 3);
+    auto square[5] { 1, 4, 5, 6, 7 }; // c스타일 배열은 auto 불가.
     return 0;
 }

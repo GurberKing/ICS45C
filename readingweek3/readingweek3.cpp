@@ -2,16 +2,14 @@
 #include <string>
 using namespace std;
 
-const string& foo(const string& s) {
-    return s;
-}
-
-string getHello() {
-    return "Hello";
+int& max(int& x, int& y) {
+    return (x > y) ? x : y;
 }
 
 int main() {
-    const string s = foo(getHello());
-    cout << s;
+    int a = 5;
+    int b = 6; 
+    max(a, b) = 7;
+    cout << a << b << '\n';
     return 0;
 }

@@ -1,13 +1,20 @@
 #include <iostream>
 #include <string>
-#include <algorithm> // for copy
+
 using namespace std;
 int main() {
-    int arr[] { 1, 2, 3 };
-    int src[] { 5, 6, 7 };
+    cout << "Enter a single digit integer, or -1 to quit: ";
+    int num;
+    cin >> num;
+    constexpr int arr[] = { 0, 1, 4, 9};
+    if (num == -1) {
+        break;
+    }
 
-    copy(begin(src), end(src), begin(arr));
-    // src 배열의 내용을 arr로 복사.
-    cout << arr[0] << '\n';
+    for (int i = 0; i < 4; i++) {
+        if (arr[i] == num) {
+            cout << num << "is a perfect square.\n";
+        }
+    }
     return 0;
 }

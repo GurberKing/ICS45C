@@ -3,9 +3,8 @@
 using namespace std;
 
 int main() {
-    int x {};
-    const int* ptr = &x;
-
-    cout << ptr << ' ' << ptr + 1 << ' ' << ptr + 2 << '\n';
+    const int arr[] { 9, 7, 5, 3, 1 };
+    const int* ptr = arr;
+    cout << ptr[2];
     return 0;
 }

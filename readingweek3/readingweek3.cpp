@@ -2,13 +2,17 @@
 #include <string>
 using namespace std;
 
-void printElementZero(const int arr[]) {    // const int* 과 동일하게 처리됨.
-    cout << arr[0];
+void printElementZero(int arr[]) {    // arr에 최소 3개의 원소가 있다는것을 어떻게 보장?
+    cout << arr[2];
 }
 int main() {
-    const int prime[] { 2, 3, 5, 7, 11 };
-    const int squares[] { 1, 4, 9, 16, 25, 36, 49, 64, 81 };
-    printElementZero(prime);    // prime은 포인터로 붕괴.
-    printElementZero(squares);  // sxquares는 포인터로 붕괴.
+    int a[] { 3, 2, 1 };
+    printElementZero(a); // 정상
+
+    int b[] { 7, 6 };
+    printElementZero(b); // 정의되지 않은 동작 발생
+
+    int c[] { 9 };
+    printElementZero(c); // 정의되지 않은 동작 발생
     return 0;
 }

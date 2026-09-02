@@ -3,11 +3,12 @@
 using namespace std;
 
 int main() {
-    const int arr[] { 3, 2, 1 };
-    cout << &arr[0] << ' ' << &arr[1] << ' ' << &arr[2] << '\n';
-    cout << arr[0] << ' ' << arr[1] << ' ' << arr[2] << '\n';
+    constexpr int arr[] { 9, 7, 5, 3, 1 };
+    const int* begin{ arr }; // 시작원소 가리킴
+    const int* end{ arr + size(arr) }; // 마지막원소의 바로 다음을 가리킴
 
-    cout << arr << ' ' << (arr + 1) << ' ' << (arr + 2) << '\n';
-    cout << *arr << ' ' << *(arr + 1) << ' ' << *(arr + 2) << '\n';
+    for (; begin != end; ++begin) { // begin부터 end 직전까지 반복
+        cout << *begin << ' '; // 현재 원소 얻기 위해 역참조.
+    }
     return 0;
 }

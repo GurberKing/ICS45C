@@ -1,15 +1,12 @@
 #include <iostream>
 #include <string>
+#include <iterator>
 using namespace std;
 
-void print(char ptr[]) {
-    cout << ptr << '\n';
-}
-
 int main() {
-    char str[]{ "string" };
-    cout << str << '\n';
-
-    print(str);
+    char rolls[255] {}; // 문자 254개 + 널문자 1개 넣을 수 있을만큼 큰 배열선언
+    cout << "Enter your rolls: ";
+    cin.getline(rolls, size(rolls));
+    cout << "You entered: " << rolls << '\n';
     return 0;
 }

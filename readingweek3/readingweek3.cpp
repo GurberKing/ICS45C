@@ -1,14 +1,15 @@
 #include <iostream>
 #include <string>
-#include <iterator>
-#include <cstring>
 using namespace std;
+void printCString(const char str[]) {
+    while (*str != '\0') {
+        cout << *str;
+        str++;
+    }
+}
 
 int main() {
-    char str[255]{ "string" };
-    cout << "length: " << strlen(str) << '\n';
-
-    char *ptr { str };
-    cout << "length: " << strlen(ptr) << '\n';
+    char name[] { "Hello, World!" };
+    printCString(name);
     return 0;
 }

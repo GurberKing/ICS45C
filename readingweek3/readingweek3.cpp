@@ -2,11 +2,14 @@
 #include <string>
 using namespace std;
 
-int main() {
-    constexpr int arr[] {9, 7, 5, 3, 1};
+void print(char ptr[]) {
+    cout << ptr << '\n';
+}
 
-    for (auto e : arr) {
-        cout << e << ' ';
-    }
+int main() {
+    char str[]{ "string" };
+    cout << str << '\n';
+
+    print(str);
     return 0;
 }

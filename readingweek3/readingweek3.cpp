@@ -1,26 +1,47 @@
 #include <iostream>
-#include <string>
-class Point {
+
+class Point
+{
 private:
     double m_x{};
     double m_y{};
     double m_z{};
 
 public:
-    Point(double x=0.0, double y=0.0, double z= 0.0)
-        : m_x{x}, m_y{y}, m_z{z} {}
-    
+    Point(double x=0.0, double y=0.0, double z=0.0)
+      : m_x{x}, m_y{y}, m_z{z}
+    {
+    }
+
     friend std::ostream& operator<< (std::ostream& out, const Point& point);
+    friend std::istream& operator>> (std::istream& out, Point& point);
 };
 
-std::ostream& operator<< (std::ostream& out, const Point& point) {
-    //operator<< 는 Point클래스의 friend 이므로, Point의 멤버에 접근가능.
-    out << "Point(" << point.m_x << ", " << point.m_y << ", " << point.m_z << ")";
-    return out; // operator<< 호출을 연결 할 수 있도록 std::ostream을 반환.
+std::ostream& operator<< (std::ostream& out, const Point& point)
+{
+    // Since operator<< is a friend of the Point class, we can access Point's members directly.
+    out << "Point(" << point.m_x << ", " << point.m_y << ", " << point.m_z << ')';
+
+    return out;
 }
 
-int main() {
-    const Point point1 { 2.0, 3.0, 4.0 };
-    std::cout << point1 << '\n';
+// note that point must be non-const so we can modify the object
+std::istream& operator>> (std::istream& in, Point& point)
+{
+    // This version subject to partial extraction issues (see below)
+    in >> point.m_x >> point.m_y >> point.m_z;
+
+    return in;
+}
+
+int main()
+{
+    std::cout << "Enter a point: ";
+
+    Point point{ 1.0, 2.0, 3.0 }; // non-zero test data
+    std::cin >> point;
+
+    std::cout << "You entered: " << point << '\n';
+
     return 0;
 }

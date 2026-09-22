@@ -1,15 +1,21 @@
 #include <iostream>
 #include <string>
 using namespace std;
-void printCString(const char str[]) {
-    while (*str != '\0') {
-        cout << *str;
-        str++;
+void printCStringBackwards(const char str[]) {
+    const char* ptr = str;
+
+    while (*ptr != '\0') {
+        ptr++;
+    }
+
+    while (ptr != str) {
+        --ptr;
+        cout << *ptr;
     }
 }
 
 int main() {
     char name[] { "Hello, World!" };
-    printCString(name);
+    printCStringBackwards(name);
     return 0;
 }
